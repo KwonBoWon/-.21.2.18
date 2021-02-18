@@ -12,9 +12,30 @@ class Stack:
     item=self.last.itemself.last=self.last.next
     return item
 
-stack=Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
-stack.push(5)  
+
+def isValid(self, s:str)->bool:
+  stack=[]
+  table={
+  ')':'(',
+  '}':'{',
+  ']':'{',
+
+
+  }
+
+
+  for char in s:
+    if char not in table:
+      stack.append(char)
+    elif not stack or table[char] != stack.pop():
+      return False
+  print('*',stack)
+  return len(stack)==0
+
+
+S=input()
+for i in S:
+  print(isValid(S, i))
+
+#print(stack)
+
